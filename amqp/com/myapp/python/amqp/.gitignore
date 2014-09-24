@@ -1,0 +1,6 @@
+/dispatcher.pyc
+/impl_kombu.pyc
+/manager.pyc
+/rpc.pyc
+/rpc_amqp.pyc
+/service.pyc
