@@ -18,20 +18,17 @@
 # @author: Juliano Martinez, Locaweb.
 
 import os
+import signal
 import shlex
 import subprocess
+from eventlet.green import subprocess as subprocess2
 from eventlet import greenthread
 import logging
-import utils2 as utils
 LOG = logging.getLogger(__name__)
 
 
 def create_process(cmd, root_helper=None, addl_env=None):
-    """Create a process object for the given command.
 
-    The return value will be a tuple of the process object and the
-    list of command arguments used to create it.
-    """
     if root_helper:
         cmd = shlex.split(root_helper) + cmd
     cmd = map(str, cmd)
@@ -41,11 +38,11 @@ def create_process(cmd, root_helper=None, addl_env=None):
     if addl_env:
         env.update(addl_env)
 
-    obj = utils.subprocess_popen(cmd, shell=False,
-                                 stdin=subprocess.PIPE,
-                                 stdout=subprocess.PIPE,
-                                 stderr=subprocess.PIPE,
-                                 env=env)
+    obj = subprocess_popen(cmd, shell=False,
+                            stdin=subprocess.PIPE,
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE,
+                            env=env)
     return obj, cmd
 
 
@@ -72,3 +69,22 @@ def execute(cmd, root_helper=None, process_input=None, addl_env=None,
         greenthread.sleep(0)
 
     return return_stderr and (_stdout, _stderr) or _stdout
+
+
+def _subprocess_setup():
+    # Python installs a SIGPIPE handler by default. This is usually not what
+    # non-Python subprocesses expect.
+    signal.signal(signal.SIGPIPE, signal.SIG_DFL)
+
+
+def subprocess_popen(args, stdin=None, stdout=None, stderr=None, shell=False,
+                     env=None):
+    return subprocess2.Popen(args, shell=shell, stdin=stdin, stdout=stdout,
+                            stderr=stderr, preexec_fn=_subprocess_setup,
+                            close_fds=True, env=env)
+    
+    
+    
+    
+    
+
