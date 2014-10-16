@@ -1,0 +1,10 @@
+<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" >
+<body>
+  <form action="../../user/login" method="post">
+  {% csrf_token%}
+  用户名:<input type="text" name="user">
+  密码:<input type="password" name="password">
+  <input type="submit" value="登录">
+  </form>
+</body>
