@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hiapp.laugu365"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="14" 
+              android:targetSdkVersion="14"/>
+    <!-- 读取手机状态许可 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<!-- 联网许可 -->
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<!-- 打电话许可-->
+	<uses-permission android:name="android.permission.CALL_PHONE"/>
+	<!-- 允许程序改变联网状态 -->
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+	<!-- 允许程序访问有关GSM网络信息 -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<!-- 允许程序读取或者写入配置 -->
+	<uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+	<!-- 允许程序读写外部存储卡 -->
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 定位权限-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- 根据基站获取粗略位置的许可 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 创建快捷方式的许可 -->
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT"/>
+    <application
+        android:allowBackup="true"
+        android:theme="@android:style/Theme.Light.NoTitleBar" 
+        android:icon="@drawable/icon"
+        android:label="@string/app_name">
+        <!-- icon 是显示在九宫格的图标 ; label 是显示在图标下的应用名称 -->
+        
+        <!-- 以下是activity列表 -->
+        <!-- 欢迎界面:WelcomeActivity -->
+        <activity 
+            android:label="@string/app_name" 
+            android:name=".WelcomeActivity">
+            <!-- intent filter 用以设置哪个activity作为程序启动的activity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
