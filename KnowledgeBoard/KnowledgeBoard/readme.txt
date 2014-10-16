@@ -196,6 +196,11 @@ def post_comment(request, new_comment):
     c.save()
     request.session['has_commented'] = True
     return HttpResponse('Thanks for your comment!')
+ 
+========================注意 session的使用 :==============================
+如何使用静态资源 js image css 
+首先在 settings.py 中配置静态资源路径 : 比如 /template/ststic 下面 分别 有js ,css ,image 三个文件夹 存放对应的资源, 那么:
+在 settings.py 中配置 STATIC_URL = BASE_DIR+"/template/ststic"
     
 
 
