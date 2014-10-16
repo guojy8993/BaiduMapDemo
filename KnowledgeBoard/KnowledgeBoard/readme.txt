@@ -43,15 +43,19 @@ INSTALLED_APPS = (         # to refer system or user-defined classes(lib)
 )
 
 MIDDLEWARE_CLASSES = (
+     'django.middleware.cache.UpdateCacheMiddleware',
      'django.contrib.sessions.middleware.SessionMiddleware',
      'django.middleware.common.CommonMiddleware',
      'django.middleware.csrf.CsrfViewMiddleware',
+     'django.middleware.transaction.TransactionMiddleware',
+     'django.middleware.cache.FetchFromCacheMiddleware',
      'django.contrib.auth.middleware.AuthenticationMiddleware',
      'django.contrib.messages.middleware.MessageMiddleware',
      'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     
  )
 
-ROOT_URLCONF = 'KnowledgeBoard.urls'   # refer the urs.py 
+ROOT_URLCONF = 'KnowledgeBoard.urls'   # refer the urls.py 
 
 WSGI_APPLICATION = 'KnowledgeBoard.wsgi.application'  # refer the wsgi.py 
 
