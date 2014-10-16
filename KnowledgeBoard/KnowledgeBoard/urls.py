@@ -8,6 +8,7 @@ from mvc.views import goto_register
 from mvc.views import user_register
 from mvc.views import user_login
 from mvc.views import goto_login
+import settings
 
 urlpatterns = patterns('',
     # Examples:
@@ -23,4 +24,9 @@ urlpatterns = patterns('',
     url(r'^user/register$',user_register),
     url(r'^user/login$',user_login),
     url(r'^user/goto_login$',goto_login),
+    
+    
+    url(r'js/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_URL+"/js"}), # refer js file
+    url(r'css/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_URL+"/css"}), # refer css file
+    url(r'image/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_URL+"/image"}), # refer image file
 )
