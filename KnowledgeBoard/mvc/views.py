@@ -1,18 +1,13 @@
-#author guojingyu
-#date      Oct 11, 2014
+#coding=utf-8
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from mvc.models import Doc
 from com.hiapp.common.exceptions import exception
 from mvc.models import User
-from django.db import transaction
-import json
 import logging
 
 logging.basicConfig(filename="/tmp/knowledgeboard.log",level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-
 """
 DOC
 """
@@ -20,16 +15,22 @@ def to_add_doc(request):
     return render_to_response("pages/add_doc.html",context_instance = RequestContext(request)) 
 def get_docs(request):
     docs = Doc.objects.order_by("-create_at")
-    print docs
     return render_to_response("pages/doc_list.html",{"doc_list":docs},context_instance = RequestContext(request))
+
 def add_doc(request):
     title = request.POST.get("title")
-    content = request.POST.get("content")
-    author = "unknown"
-
+    content = _process_article(request.POST.get("content"))
+    user_id = request.session.get("user_id")
+    author = User.objects.get(id=user_id).user
     Doc.objects.create(title=title,content=content,author=author)
     return render_to_response("pages/add_doc.html",context_instance = RequestContext(request))
 
+def _process_article(article):
+    parray = article.split("\n")
+    result = ""
+    for p in parray:
+        result += "     %s \x0a"%p.strip()
+    return result;
 """
 USER
 """

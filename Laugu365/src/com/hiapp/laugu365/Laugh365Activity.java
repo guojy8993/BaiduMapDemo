@@ -5,7 +5,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.MenuInflater;
 import android.view.ViewGroup;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.BaseAdapter;
@@ -13,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.view.KeyEvent;
 
@@ -23,7 +25,7 @@ public class Laugh365Activity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		AdManager.init(Laugh365Activity.this, "c1ced68cd9b2f3bd", "fc83ab5311ddbf2a", 100, false);
+		AdManager.init(getApplicationContext(), "c1ced68cd9b2f3bd", "fc83ab5311ddbf2a", 100, false);
 		setContentView(R.layout.laugh365);
 		
 		gridView = (GridView)this.findViewById(R.id.content_view_by_class);
@@ -32,12 +34,28 @@ public class Laugh365Activity extends Activity {
 	}
 	
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.layout.main_menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem menuItem){
+		switch(menuItem.getItemId()){
+		case R.id.about:
+			startActivity(new Intent(Laugh365Activity.this,AboutActivity.class));
+			return true;
+		}
+		return super.onOptionsItemSelected(menuItem);
+	}
+	@Override
 	public boolean onKeyDown(int keyCode,KeyEvent keyEvent){
 		if(keyCode == KeyEvent.KEYCODE_BACK){
 			AlertDialog.Builder builder = new AlertDialog.Builder(Laugh365Activity.this);
 			builder.setTitle(R.string.main_back_alert_title)
 			       .setMessage(R.string.main_back_alert_msg)
-			       .setPositiveButton(R.string.main_back_alert_confirm, new OnClickListener(){
+			       .setPositiveButton(R.string.main_back_alert_confirm, new DialogInterface.OnClickListener(){
 
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
@@ -47,7 +65,7 @@ public class Laugh365Activity extends Activity {
 							android.os.Process.killProcess(android.os.Process.myUid());
 						}				    	   
 				    })
-			      .setNegativeButton(R.string.main_back_alert_cancel,new OnClickListener(){
+			      .setNegativeButton(R.string.main_back_alert_cancel,new DialogInterface.OnClickListener(){
 
 						@Override
 						public void onClick(DialogInterface dialog, int which) {							
@@ -56,15 +74,15 @@ public class Laugh365Activity extends Activity {
 				
 			});
 			builder.show();
-			
+			return true;
 		}
-		return false;		
+		return super.onKeyDown(keyCode, keyEvent);
+				
 	}
 	private OnItemClickListener listener = new OnItemClickListener(){
 
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
+		public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 			switch(position){
 			case 0:
 				    Intent animal_comic = new Intent(getApplicationContext(),ImageActivity.class);
@@ -93,8 +111,6 @@ public class Laugh365Activity extends Activity {
 	//内部类专门服务于 Laugh365Activity 
 	private class ImageAdapter extends BaseAdapter{
 
-		private int[] ids = {R.drawable.main_pic_0,R.drawable.main_pic_1,R.drawable.main_pic_2,R.drawable.main_pic_3};
-		private int[] titles = {R.string.animal_and_comic,R.string.children,R.string.fool,R.string.interestings};
 		@Override
 		public int getCount() {
 			//ImageAdapter getCount()/numColumns e.g: 5/2=2..1 即为3行
@@ -132,5 +148,7 @@ public class Laugh365Activity extends Activity {
 			TextView text;
 			ImageView image;
 		}		
+		private int[] ids = {R.drawable.main_pic_0,R.drawable.main_pic_1,R.drawable.main_pic_2,R.drawable.main_pic_3};
+		private int[] titles = {R.string.animal_and_comic,R.string.children,R.string.fool,R.string.interestings};
 	}
 }

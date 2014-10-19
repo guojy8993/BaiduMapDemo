@@ -2,7 +2,6 @@ package com.hiapp.laugu365;
 
 import com.hiapp.util.NetworkManager;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;

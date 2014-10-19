@@ -17,7 +17,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^docs/$',get_docs),
-    url(r'^docs/add/$',add_doc),
+    url(r'docs/add/$',add_doc),
     url(r'^docs/to_adddoc/$',to_add_doc),
     url(r'^users/list$',user_list),
     url(r'^user/goto_register$',goto_register),

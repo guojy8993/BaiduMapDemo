@@ -1,10 +1,123 @@
-<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" >
-<body>
-	<form method="post" action="../../docs/add/">
-	    {% csrf_token %}
-		<input name="title"/>
-		<input name="content">
-		<input type="submit"/>
-	</form>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ZH_CN" lang="ZH_CN">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="ZH_CN" />
+    <title>文档列表</title>
+    <meta name="ROBOTS" content="ALL" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="Copyright" content="向学文档" />
+    <meta name="keywords" content="Document,Blog,Share" />
+    <meta name="description" content="个人文档 档案馆 " />
+    
+    <link href="../static/css/411a3ac37670.css" rel="stylesheet" type="text/css" media="screen" />    
+    <link href="../static/css/ac134bbb8dfc.css" rel="stylesheet" type="text/css" media="print" />  
+    <link rel="stylesheet" href="../static/css/0047ef2d621d.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/0d57d48be058.css" type="text/css" />
+
+	<script src="../static/js/jquery.js"></script>
+	<style type="text/css" media="screen">
+	  body {
+	    margin-top: 2em;
+	  }
+	</style>
+  </head>
+  <body id="documentation" class="default">
+  <div id="container">
+    <div id="header">
+      <h1 id="logo"><img src="../static/image/b19c5e60269d.gif" alt="Django" /></h1>
+      <ul id="nav-global">
+        <li id="nav-homepage"><a href="#">注册</a></li>
+        <li id="nav-download"><a href="#">登录</a></li>
+        <li id="nav-download"><a href="#">注销</a></li>
+      </ul>
+    </div>
+    <!-- END Header -->
+    <div id="billboard"><h2><a>Django documentation</a></h2></div>
+    <div id="columnwrap">      
+		<div id="content-main">
+                   <div class="section" id="s-django-s-security-policies">
+                        <span id="s-internals-security"></span>
+                        <span id="django-s-security-policies"></span>
+                        <span id="internals-security"></span>
+                        <div class="section" id="s-reporting-security-issues">
+                                <span id="s-id1"></span><span id="reporting-security-issues"></span>
+                                <span id="id1"></span>
+                                <h2>创建文档<a class="headerlink">¶</a></h2>
+								<p><strong></strong></p>
+								<p>
+								    <form action="../../docs/add/" method="post">
+								       {% csrf_token %}
+								       <table>
+								       <tr><td>标题</td><td><input name="title"></td></tr>
+								       <tr><td>内容</td><td><textarea name="content" style="width:738px;height:279px;"></textarea></td></tr>
+								       <tr><td></td><td><input type="submit" value="提交"></td></tr>								       
+								       </table>
+								    </form>								
+								</p>
+					</div>
+		</div>
+		<div class="browse-horizontal">  
+    		<div class="left"><a href="../roles/">&laquo; Roles</a></div>  
+    		<div class="right"><a href="../release-process/">Django&#8217;s release process &raquo;</a></div>  
+		</div>
+		<div id="content-secondary">
+  			<h2 id="comments">Questions/Feedback</h2>
+  			<p>Having trouble? We'd like to help!</p>
+	    <ul>
+		    <li>     
+		      Try the <a href="/en/dev/faq/">FAQ</a> — it's got answers to many common questions.
+		    </li>
+		    <li>
+		      Search for information in the <a
+		      href="http://groups.google.com/group/django-users/">archives of the
+		      django-users mailing list</a>, or <a
+		      href="http://groups.google.com/group/django-users/">post a question</a>.
+		    </li>
+		    <li>
+		      Ask a question in the <a href="irc://irc.freenode.net/">#django IRC
+		      channel</a>, or search the <a href="http://django-irc-logs.com/">IRC
+		      logs</a> to see if it has been asked before.
+		    </li>
+		    <li>
+		      If you notice errors with this documentation, please <a
+		      href="https://code.djangoproject.com/newticket?component=Documentation">
+		      open a ticket</a> and let us know! Please only use the ticket tracker for
+		      criticisms and improvements on the docs. For tech support, use the
+		      resources above.
+		    </li>
+	    </ul>
+    </div>
+  </div>
+  
+  <!-- END #content-main -->
+  <div id="content-related" class="sidebar">  
+    <h2>Contents</h2>    
+      <ul>
+         <li><a class="reference internal" href="#">占位置</a><ul>
+      </ul>
+</li>
+</ul>    
+  
+  
+    <h2>Browse</h2>
+    <ul>
+          <li>Prev: <a href="../roles/">Roles</a></li>
+          <li>Next: <a href="../release-process/">Django&#8217;s release process</a></li>
+          <li><a href="/en/dev/contents/">Table of contents</a></li>
+          <li><a href="/en/dev/genindex/">General Index</a></li>
+          <li><a href="/en/dev/py-modindex/">Python Module Index</a></li>
+    </ul>  
+  </div>
+  <!-- END #content-related -->
+
+ </div>
+    <!-- END #content -->
+ <div id="footer"><p>&copy; 2005-2014 <a>向学文档</a></p></div>
+    <!-- END #footer -->
+ </div>
+   <!-- END #container -->
 </body>
+</html>

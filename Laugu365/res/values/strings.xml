@@ -3,27 +3,31 @@
 
     <!-- 程序九宫显示信息 -->
     <string name="app_name">糗事百科</string>
-    
+
     <!-- 开始界面 -->
     <string name="no_network_alert_title">网络不可用</string>
     <string name="no_network_alert_msg">请检查网络是否可用</string>
     <string name="no_network_alert_tips">确定</string>
-    
+
     <!-- 主界面 头脚信息 -->
     <string name="main_header_desc">主界面头部banner</string>
     <string name="main_footer_desc">主界面页部banner</string>
-    
+
     <!-- 主界面内容 分类标题 -->
     <string name="animal_and_comic">动物与漫画</string>
     <string name="children">儿童图片</string>
     <string name="fool">囧人糗事</string>
     <string name="interestings">趣味新闻</string>
-    
-    <!-- 主界面 返回操作 信息提醒-->
+
+    <!-- 主界面 返回操作 信息提醒 -->
     <string name="main_back_alert_title">结束程序</string>
     <string name="main_back_alert_msg">是否退出程序</string>
     <string name="main_back_alert_confirm">确定</string>
     <string name="main_back_alert_cancel">取消</string>
-    
     <string name="imageview">ImageView</string>
+    <string name="about_us">关于我们</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>
