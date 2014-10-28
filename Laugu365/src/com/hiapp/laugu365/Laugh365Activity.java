@@ -86,22 +86,22 @@ public class Laugh365Activity extends Activity {
 			switch(position){
 			case 0:
 				    Intent animal_comic = new Intent(getApplicationContext(),ImageActivity.class);
-				    animal_comic.putExtra("title", "动漫与萌宠");
+				    animal_comic.putExtra("title", "animal_comic");
 				    startActivity(animal_comic);
 				    break;
 			case 1:
 				    Intent children = new Intent(getApplicationContext(),ImageActivity.class);
-				    children.putExtra("title", "萌宝贝");
+				    children.putExtra("title", "children");
 				    startActivity(children);
 				    break;
 			case 2:
 				    Intent fool = new Intent(getApplicationContext(),TextActivity.class); 
-				    fool.putExtra("title", "糗事百科");
+				    fool.putExtra("title", "fool");
 				    startActivity(fool);
 				    break;
 			case 3:
 				    Intent interestings = new Intent(getApplicationContext(),TextActivity.class);
-				    interestings.putExtra("title", "趣闻");
+				    interestings.putExtra("title", "interestings");
 				    startActivity(interestings);
 				    break;
 			}			

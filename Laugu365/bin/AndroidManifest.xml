@@ -54,6 +54,10 @@
             android:name=".AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+        <activity
+            android:name=".ImageReadActivity"
+            android:label="@string/title_activity_image_read" >
+        </activity>
     </application>
 
 </manifest>
