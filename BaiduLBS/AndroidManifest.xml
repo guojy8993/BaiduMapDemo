@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.apps.baidumap"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="7"  android:targetSdkVersion="10" />
+    
+    <uses-permission  android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission  android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- Required When Fine Locating -->
+    <uses-permission  android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission  android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission  android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- Read Phone State -->
+    <uses-permission  android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- To Write Offline Data - Location Info-->
+    <uses-permission  android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission  android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- Access Internet -->
+    <uses-permission  android:name="android.permission.INTERNET"/>
+    <!-- Read Low Level System Logs-->
+    <uses-permission  android:name="android.permission.READ_LOGS"/>
+    
+    <!-- Accounts Related -->
+    <uses-permission  android:name="android.permission.GET_ACCOUNTS."/>
+    <uses-permission  android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission  android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission  android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    
+    <!-- Settings Related -->
+    <uses-permission  android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission  android:name="android.permission.WRITE_SETTINGS"/>
+    
+    <!-- Broadcast -->
+    <uses-permission  android:name="android.permission.BROADCAST_STICKY"/> 
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <!-- Set AK Code Used For Auth-->
+        <meta-data 
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="bUpKrPCGP84UFaAX2HSmVj8N"/>
+        <!--  Activities -->
+        <activity 
+            android:name="com.apps.baidumap.WelcomeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action   android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.apps.baidumap.DemoMain"/>
+    </application>
+</manifest>
